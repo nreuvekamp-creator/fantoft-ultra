@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fantoft Ultra — One loop. Every hour. Yes I can.</title>
+<meta name="description" content="A backyard ultra in Bergen. 6.706 km every hour, on the hour, from 18:00 on Friday 30 October 2026. One lap counts as taking part.">
+<meta name="theme-color" content="#0E0C0B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fantoft Ultra — One loop. Every hour. Yes I can.">
+<meta property="og:description" content="A backyard ultra in Bergen. 6.706 km every hour, on the hour, from 18:00 on Friday 30 October 2026. One lap counts as taking part.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230E0C0B'/%3E%3Cpath d='M20 78 L50 30 L80 78' fill='none' stroke='%23F0A238' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:ital,wght@0,400;0,500;0,700;0,800;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    color-scheme:dark;
+
+    --tar:#17130F;
+    --night:#0E0C0B;
+    --deep:#070606;
+    --bone:#EFE7DA;
+    --ash:#C4B7A6;
+    --ash-dim:#93887A;
+    --lamp:#F0A238;
+    --lamp-deep:#B06A18;
+    --ember:#B34328;
+    --rain:#7C949B;
+    --line:rgba(239,231,218,.13);
+    --line-soft:rgba(239,231,218,.07);
+
+    --display:"Alfa Slab One",Georgia,"Times New Roman",serif;
+    --body:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+    --rail:104px;
+    --measure:62ch;
+  }
+
+  *{box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;
+    background:var(--night);
+    color:var(--ash);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%}
+
+  ::selection{background:var(--lamp);color:var(--tar)}
+
+  a{color:var(--lamp)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lamp);outline-offset:3px;border-radius:2px}
+
+  /* ---------- shared type ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.7rem;
+    font-weight:500;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--rain);
+    margin:0;
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--bone);text-wrap:balance;letter-spacing:-.005em}
+  h2{font-size:clamp(1.45rem,4.2vw,2.1rem);line-height:1.15;margin:0}
+  h3{font-size:1.05rem;line-height:1.3;margin:0}
+  p{margin:0;max-width:var(--measure)}
+  strong{color:var(--bone);font-weight:700}
+
+  .stack{display:flex;flex-direction:column;gap:1.1rem}
+  .stack-tight{display:flex;flex-direction:column;gap:.6rem}
+
+  /* ---------- bands ---------- */
+  .band{padding:clamp(3.4rem,9vw,6.5rem) clamp(1.15rem,5vw,2.5rem)}
+  .band-inner{max-width:1000px;margin:0 auto}
+  #dusk{background:var(--tar)}
+  #night{background:var(--night)}
+  #deep{background:var(--deep)}
+  #fire{background:var(--lamp);color:#3E2D14}
+  #fire h2,#fire h3{color:var(--tar)}
+  #fire .eyebrow{color:#7A5720}
+  #fire strong{color:var(--tar)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 80% at 50% 108%, rgba(240,162,56,.20), rgba(240,162,56,0) 62%),
+      linear-gradient(#1C1712, var(--tar));
+    padding:clamp(2.4rem,6vw,4rem) clamp(1.15rem,5vw,2.5rem) clamp(3rem,7vw,4.5rem);
+    border-bottom:1px solid var(--line-soft);
+  }
+  #rain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+  .hero-inner{position:relative;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(1.6rem,4vw,2.4rem)}
+
+  .crest{width:clamp(132px,25vw,178px);height:auto;display:block;opacity:.92}
+  .crest .stavkirke{fill:none;stroke:var(--lamp);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round}
+  .crest .solid{fill:var(--lamp);stroke:none}
+
+  .wordmark{
+    font-family:var(--display);
+    font-size:clamp(2.7rem,12.5vw,7rem);
+    line-height:.9;
+    margin:0;
+    color:var(--bone);
+    letter-spacing:-.015em;
+  }
+  .wordmark span{display:block}
+  .tagline{
+    font-family:var(--display);
+    font-size:clamp(1.6rem,7vw,3.6rem);
+    line-height:1;
+    color:var(--lamp);
+    margin:0;
+  }
+  .thesis{
+    font-family:var(--body);
+    font-size:clamp(1.05rem,2.6vw,1.35rem);
+    line-height:1.45;
+    color:var(--ash);
+    max-width:34ch;
+    margin:0;
+  }
+
+  .when{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.55rem .9rem;
+    font-family:var(--mono);
+    font-size:.92rem;
+    letter-spacing:.02em;
+    color:var(--bone);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:.85rem 0;
+  }
+  .when .dot{color:var(--ash-dim)}
+  .tag{
+    font-size:.62rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--rain);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:.18rem .5rem;
+    white-space:nowrap;
+  }
+
+  /* ---------- countdown ---------- */
+  .countdown{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-variant-numeric:tabular-nums}
+  .cd-unit{display:flex;flex-direction:column;gap:.15rem}
+  .cd-num{font-family:var(--mono);font-weight:600;font-size:clamp(1.5rem,5vw,2.3rem);line-height:1;color:var(--bone)}
+  .cd-lab{font-family:var(--mono);font-size:.6rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ash-dim)}
+
+  /* ---------- cta ---------- */
+  .cta-row{display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:.7rem;
+    font-family:var(--body);
+    font-weight:800;
+    font-size:1.06rem;
+    letter-spacing:.01em;
+    text-decoration:none;
+    color:var(--tar);
+    background:var(--lamp);
+    border:0;
+    padding:1rem 1.6rem;
+    cursor:pointer;
+    transition:box-shadow .25s ease,transform .18s ease,background .25s ease;
+  }
+  .cta:hover{background:#FFB44F;box-shadow:0 0 0 1px var(--lamp),0 10px 40px -8px rgba(240,162,56,.65);transform:translateY(-1px)}
+  .cta .arrow{font-family:var(--mono);font-weight:500}
+  .cta[data-pending="true"]{background:transparent;color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp-deep);cursor:default}
+  .cta[data-pending="true"]:hover{transform:none;box-shadow:inset 0 0 0 1.5px var(--lamp-deep);background:transparent}
+  .cta-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ash-dim);margin:0}
+  .cta-quiet{background:transparent;color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp-deep);font-size:.98rem;padding:.85rem 1.35rem}
+  .cta-quiet:hover{background:rgba(240,162,56,.1);color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp),0 8px 30px -12px rgba(240,162,56,.5)}
+  #fire .cta{background:var(--tar);color:var(--lamp)}
+  #fire .cta:hover{background:#000;box-shadow:0 12px 40px -10px rgba(23,19,15,.6)}
+  #fire .cta[data-pending="true"]{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.45)}
+  #fire .cta-note{color:#7A5720}
+
+  /* ---------- hour rail ---------- */
+  .hours{position:relative;max-width:1000px;margin:0 auto}
+  .hour{
+    display:grid;
+    grid-template-columns:var(--rail) minmax(0,1fr);
+    gap:0 clamp(1.4rem,4vw,3rem);
+    padding-block:clamp(2.2rem,5vw,3.2rem);
+  }
+  .hour:first-child{padding-top:0}
+  .hour:last-child{padding-bottom:0}
+  .hour-mark{
+    position:relative;
+    font-family:var(--mono);
+    font-size:.78rem;
+    font-weight:500;
+    letter-spacing:.08em;
+    color:var(--lamp);
+    text-align:right;
+    padding-top:.35rem;
+    padding-right:1.1rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .hour-mark small{display:block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash-dim);margin-top:.25rem}
+  .hour-mark::after{
+    content:"";
+    position:absolute;
+    right:-1px;top:.6rem;bottom:-100%;
+    border-right:1px solid var(--line);
+  }
+  .hour:last-child .hour-mark::after{bottom:auto;height:1.4rem}
+  .hour-mark::before{
+    content:"";
+    position:absolute;
+    right:-5px;top:.62rem;
+    width:9px;height:9px;
+    background:var(--lamp);
+    border-radius:50%;
+  }
+  .hour-body{display:flex;flex-direction:column;gap:1.15rem;min-width:0}
+
+  @media (max-width:760px){
+    .hour{grid-template-columns:1fr;gap:.9rem}
+    .hour-mark{
+      text-align:left;padding:0;
+      display:flex;align-items:baseline;gap:.6rem;
+    }
+    .hour-mark::before,.hour-mark::after{display:none}
+    .hour-mark small{margin:0}
+    .hour-mark{border-left:2px solid var(--lamp);padding-left:.6rem}
+  }
+
+  /* ---------- ladder ---------- */
+  .ladder{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+  .ladder li{
+    display:grid;
+    grid-template-columns:minmax(0,auto) minmax(0,1fr);
+    align-items:baseline;
+    gap:.3rem 1.2rem;
+    padding:.95rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .rung-n{font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--lamp);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .rung-t{color:var(--ash);font-size:1rem}
+  .rung-t b{color:var(--bone);font-weight:700}
+  .ladder li:last-child .rung-n{color:var(--bone)}
+  @media (max-width:560px){
+    .ladder li{grid-template-columns:1fr;gap:.15rem}
+  }
+
+  /* ---------- table ---------- */
+  .scroller{overflow-x:auto;border:1px solid var(--line)}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-variant-numeric:tabular-nums}
+  caption{
+    caption-side:bottom;text-align:left;padding:.7rem .2rem 0;
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;color:var(--ash-dim);
+  }
+  th,td{padding:.62rem .9rem;text-align:left;border-bottom:1px solid var(--line-soft);font-size:.9rem}
+  thead th{
+    font-family:var(--mono);font-size:.63rem;font-weight:500;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--rain);border-bottom:1px solid var(--line);
+  }
+  tbody td:first-child,tbody td:nth-child(2),tbody td:nth-child(3){font-family:var(--mono);white-space:nowrap}
+  tbody td:first-child{color:var(--lamp);font-weight:500}
+  tbody td:nth-child(3){color:var(--bone)}
+  tbody td:last-child{color:var(--ash-dim)}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr.milestone td:last-child{color:var(--ash)}
+
+  /* ---------- pull quote ---------- */
+  .pull{
+    display:flex;flex-direction:column;gap:.6rem;
+    border-left:3px solid var(--lamp);
+    padding:.2rem 0 .2rem clamp(1rem,3vw,1.6rem);
+    margin:0;
+  }
+  .pull p{
+    font-family:var(--display);
+    font-size:clamp(1.15rem,3.4vw,1.7rem);
+    line-height:1.25;
+    color:var(--bone);
+    max-width:30ch;
+    margin:0;
+  }
+  .pull cite{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash-dim);font-style:normal}
+
+  /* ---------- kit ---------- */
+  .kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .kit div{background:var(--deep);padding:1.1rem 1.15rem;display:flex;flex-direction:column;gap:.35rem}
+  .kit .k-lab{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lamp)}
+  .kit .k-lab.req{color:var(--ember)}
+  .kit h3{font-size:1rem}
+  .kit p{font-size:.88rem;line-height:1.5;color:var(--ash-dim)}
+
+  /* ---------- faq ---------- */
+  .faq{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{
+    cursor:pointer;list-style:none;
+    padding:.95rem 2rem .95rem 0;
+    position:relative;
+    color:var(--bone);
+    font-weight:500;
+    font-size:1rem;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";
+    position:absolute;right:.2rem;top:.85rem;
+    font-family:var(--mono);color:var(--lamp);font-size:1.15rem;line-height:1;
+  }
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 1.1rem;color:var(--ash);font-size:.95rem}
+
+  /* ---------- footer ---------- */
+  .footer{
+    background:var(--deep);
+    border-top:1px solid var(--line-soft);
+    padding:clamp(2.2rem,6vw,3.2rem) clamp(1.15rem,5vw,2.5rem);
+  }
+  .footer-inner{
+    max-width:1000px;margin:0 auto;
+    display:flex;flex-wrap:wrap;gap:1.2rem 2.5rem;align-items:baseline;justify-content:space-between;
+    font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--ash-dim);
+  }
+  .footer-inner p{margin:0}
+
+  /* ---------- reveal ---------- */
+  .rise{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rise.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rise{opacity:1;transform:none;transition:none}
+    .cta{transition:none}
+    #rain{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+
+    <svg class="crest" viewBox="0 0 240 326" role="img" aria-label="Silhouette of a Norwegian stave church with dragon-head crests on the gable">
+      <g class="stavkirke">
+        <path d="M120 16 V34" />
+        <path d="M82 92 L120 34 L158 92" />
+        <path d="M82 92 V138 M158 92 V138" />
+        <path d="M54 180 L120 82 L186 180" />
+        <path d="M54 180 V235 M186 180 V235" />
+        <path d="M32 258 L120 166 L208 258" />
+        <path d="M32 258 V292 M208 258 V292" />
+        <path d="M8 308 L120 232 L232 308" />
+        <path d="M8 308 V320 M232 308 V320" />
+        <path d="M4 320 H236" />
+      </g>
+      <g class="solid">
+        <path d="M120 2 l6 8 -6 7 -6 -7 z" />
+        <path d="M104 62 C96 56 86 50 78 42 L64 33 L77 38 C71 32 73 23 82 20 C77 27 80 34 86 38 C94 46 100 54 109 61 Z" />
+        <path d="M136 62 C144 56 154 50 162 42 L176 33 L163 38 C169 32 167 23 158 20 C163 27 160 34 154 38 C146 46 140 54 131 61 Z" />
+      </g>
+    </svg>
+
+    <div class="stack-tight">
+      <p class="eyebrow">Fantoft &middot; Bergen &middot; 60&deg;22&prime;N</p>
+      <h1 class="wordmark"><span>Fantoft</span><span>Ultra</span></h1>
+      <p class="tagline">Yes I Can.</p>
+    </div>
+
+    <p class="thesis">One loop. Every hour, on the hour. Until only one of us is left.</p>
+
+    <div class="when">
+      <span>Friday 30 October 2026</span>
+      <span class="dot">/</span>
+      <span>18:00</span>
+      <span class="tag">Planned start</span>
+      <span class="dot">/</span>
+      <span>6.706 km per lap</span>
+    </div>
+
+    <div class="countdown" id="countdown" aria-label="Time until the start">
+      <div class="cd-unit"><span class="cd-num" data-cd="d">--</span><span class="cd-lab">Days</span></div>
+      <div class="cd-unit"><span class="cd-num" data-cd="h">--</span><span class="cd-lab">Hours</span></div>
+      <div class="cd-unit"><span class="cd-num" data-cd="m">--</span><span class="cd-lab">Minutes</span></div>
+      <div class="cd-unit"><span class="cd-num" data-cd="s">--</span><span class="cd-lab">Seconds</span></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta js-signup" href="#signup"><span>Yes, I&rsquo;m in</span><span class="arrow">&rarr;</span></a>
+      <p class="cta-note js-note">One lap counts as taking part. Here&rsquo;s why &darr;</p>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="dusk">
+  <div class="hours">
+
+    <div class="hour rise">
+      <div class="hour-mark">18:00<small>Lap 1</small></div>
+      <div class="hour-body">
+        <h2>Nobody starts alone</h2>
+        <p>The first lap, we all go out as one group. No pace, no racing, no getting dropped &mdash; we walk and run it together and talk the whole way round.</p>
+        <p>At six in the evening at the end of October in Bergen, it is already dark. So that first lap takes us straight into the night, together. That is the whole idea: you head into the dark with a hundred other people instead of on your own.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">19:00<small>Lap 2 onwards</small></div>
+      <div class="hour-body">
+        <h2>The only rule</h2>
+        <p><strong>6.706 km. Every hour, on the hour.</strong> Finish your lap, come back to the bell, wait for the next hour, go again. Whatever time you have left before the bell is yours &mdash; to eat, to sit down, to change your socks, to talk nonsense.</p>
+        <p>When you don&rsquo;t make it back in time, or you decide you&rsquo;re done, you&rsquo;re out. The last one standing wins. <strong>Everyone else gets a DNF.</strong> Yes, everyone. That is genuinely how this format works, and it is half the fun of it.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">&mdash;<small>Any lap</small></div>
+      <div class="hour-body">
+        <h2>Mostly, this is an excuse to spend a night together</h2>
+        <p>Let&rsquo;s be honest about what this is. It is a bell, a loop around Fantoft, something warm to drink, and a group of people finding out what they are up for. The winning is a side effect.</p>
+        <p>You do not have to be a runner. You can walk the whole lap. You can stop after one and stay for the rest of the night with a cup of something, counting the others through. <strong>Nobody will ask you why you stopped.</strong></p>
+        <p>What we actually want is <strong>200 people on the start line at 18:00</strong>. What happens after that is between you and the hours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="band" id="night">
+  <div class="hours">
+
+    <div class="hour rise">
+      <div class="hour-mark">?<small>Your call</small></div>
+      <div class="hour-body">
+        <h2>How far will you go?</h2>
+        <p>Pick something when you sign up. It is not binding &mdash; it just helps us plan, and it gives you a number to aim at.</p>
+        <ul class="ladder">
+          <li><span class="rung-n">1 lap</span><span class="rung-t"><b>6.7 km</b> &mdash; I want to be on that start line.</span></li>
+          <li><span class="rung-n">3 laps</span><span class="rung-t"><b>20.1 km</b> &mdash; nearly a half marathon, by accident.</span></li>
+          <li><span class="rung-n">7 laps</span><span class="rung-t"><b>46.9 km</b> &mdash; past a marathon, in the dark.</span></li>
+          <li><span class="rung-n">&infin;</span><span class="rung-t"><b>As long as my legs hold.</b> I&rsquo;ll find out on the night.</span></li>
+          <li><span class="rung-n">Last one standing</span><span class="rung-t"><b>I&rsquo;m here to win it.</b> Everyone else can have the DNF.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">00:00<small>The maths</small></div>
+      <div class="hour-body">
+        <h2>What each hour adds up to</h2>
+        <div class="scroller">
+          <table>
+            <thead>
+              <tr><th scope="col">Lap</th><th scope="col">Starts</th><th scope="col">Total</th><th scope="col">Which is</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Fri 18:00</td><td>6.7 km</td><td>All of us, together, in the dark</td></tr>
+              <tr class="milestone"><td>3</td><td>Fri 20:00</td><td>20.1 km</td><td>Around half-marathon distance</td></tr>
+              <tr><td>5</td><td>Fri 22:00</td><td>33.5 km</td><td>Further than most people ever run</td></tr>
+              <tr class="milestone"><td>7</td><td>Sat 00:00</td><td>46.9 km</td><td>Past a marathon. Midnight.</td></tr>
+              <tr><td>12</td><td>Sat 05:00</td><td>80.5 km</td><td>The hard part. Nobody feels good here.</td></tr>
+              <tr class="milestone"><td>15</td><td>Sat 08:00</td><td>100.6 km</td><td>Daylight comes back</td></tr>
+              <tr><td>19</td><td>Sat 12:00</td><td>127.4 km</td><td>A full day since the bell</td></tr>
+              <tr class="milestone"><td>24</td><td>Sat 17:00</td><td>160.9 km</td><td>100 miles &mdash; and it gets dark again</td></tr>
+            </tbody>
+            <caption>One lap is 6.706 km, the official backyard distance. Times assume an 18:00 start.</caption>
+          </table>
+        </div>
+        <p>For scale: the world record is over 100 laps. We are not going there. Probably.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">1 shirt<small>The prize</small></div>
+      <div class="hour-body">
+        <h2>There is exactly one prize</h2>
+        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list.</p>
+        <p>No medals, no goodie bags, no finisher photos you have to buy. We are keeping this deliberately cheap so that turning up can stay free &mdash; what money there is goes on the food table, not on merchandise. Everyone who isn&rsquo;t the winner gets a DNF and the story about the night it took.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">Teams<small>Clubs &amp; groups</small></div>
+      <div class="hour-body">
+        <h2>Bring a club, a team or a whole corridor</h2>
+        <p>Running clubs, student teams, sports associations, a company, or simply everyone on your floor at Fantoft: you can enter as a group. One person signs the group up, and we keep you together for the first laps so nobody is standing on their own at 17:55.</p>
+        <p>It is also by far the fastest route to 200 people on that start line &mdash; so if you run a club, <strong>this is us asking</strong>.</p>
+        <div class="cta-row">
+          <a class="cta cta-quiet js-team" href="#signup"><span>Sign up a group</span><span class="arrow">&rarr;</span></a>
+          <p class="cta-note js-team-note">One form for the whole group. We&rsquo;ll come back to you about numbers.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="band" id="deep">
+  <div class="hours">
+
+    <div class="hour rise">
+      <div class="hour-mark">TBC<small>The loop</small></div>
+      <div class="hour-body">
+        <h2>The route isn&rsquo;t final yet</h2>
+        <p>It will be a loop starting and finishing at Fantoft, measured to 6.706 km, on ground you can run in the dark. We are still walking options and timing them.</p>
+        <p>Sign up now and you will be the first to get the route, the final start time and everything else. That is the main reason this page exists.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">&#9730;<small>Conditions</small></div>
+      <div class="hour-body">
+        <h2>Weather forecast: it&rsquo;s Bergen</h2>
+        <p>Prepare for the worst. Rain, wind, wet leaves, darkness, and a temperature that feels a lot colder at 04:00 than it did at 18:00. Come dressed for the night you would least like to have.</p>
+        <div class="kit">
+          <div>
+            <span class="k-lab req">Required</span>
+            <h3>Head torch</h3>
+            <p>You are running in the dark for most of this. Bring spare batteries if you have them.</p>
+          </div>
+          <div>
+            <span class="k-lab req">Required</span>
+            <h3>Rain shell</h3>
+            <p>Not optional in Bergen in October. Something with a hood that you can move in.</p>
+          </div>
+          <div>
+            <span class="k-lab">Bring</span>
+            <h3>A bag of dry clothes</h3>
+            <p>Dry socks and a dry layer between laps change everything. Leave the bag at the start.</p>
+          </div>
+          <div>
+            <span class="k-lab">Bring</span>
+            <h3>Food you actually like</h3>
+            <p>At 03:00 you will not want a gel. You will want the thing you eat when you&rsquo;re sad.</p>
+          </div>
+        </div>
+        <blockquote class="pull">
+          <p>If we wanted to make this easy, we would have organised a 5K.</p>
+          <cite>Fantoft Ultra</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">NOK<small>Food &amp; money</small></div>
+      <div class="hour-body">
+        <h2>Free to start. The food is a shared pot.</h2>
+        <p><strong>Lap 1 costs you nothing.</strong> Turning up, running one lap in the dark with everyone else and going home again is free, and it stays free. We are not selling entries here.</p>
+        <p>If you stay into the night you will be eating and drinking from our table for hours, and that food has to come from somewhere &mdash; so the people who stay chip in for it. Roughly: nothing for the first couple of laps, a little if you are still with us after 20:00, a bit more if you are also there for breakfast. Everyone pays for their own night. It is not an entry fee, and it is nowhere near what a real ultra charges.</p>
+        <p>Exact amounts land with the route announcement, and you will be able to pay it on the night with Vipps. There is a shop a few minutes away, so if there is one specific thing you will want at 03:00, bring it or tell us about it.</p>
+      </div>
+    </div>
+
+    <div class="hour rise">
+      <div class="hour-mark">FAQ<small>Short answers</small></div>
+      <div class="hour-body">
+        <h2>Questions people keep asking</h2>
+        <div class="faq">
+          <details>
+            <summary>I&rsquo;ve never run further than 5 km. Is this for me?</summary>
+            <p>Yes, and you&rsquo;re exactly who we&rsquo;re trying to get on the start line. Lap 1 is 6.7 km, in a group, at conversation pace. Do that and you have taken part in an ultra.</p>
+          </details>
+          <details>
+            <summary>Can I walk it?</summary>
+            <p>Completely. The only thing that matters is being back before the bell. Plenty of people walk laps late in a backyard ultra anyway.</p>
+          </details>
+          <details>
+            <summary>What if I only do one lap?</summary>
+            <p>Then you did one lap. That is a full entry and nobody thinks less of it. Stay at the finish, get something warm, and cheer the rest through the night.</p>
+          </details>
+          <details>
+            <summary>Does it cost anything?</summary>
+            <p>There is no entry fee, and lap 1 is free for everyone. If you stay into the night there is a small shared contribution for the food table &mdash; a fraction of what a real ultra charges you. Exact amounts come with the route.</p>
+          </details>
+          <details>
+            <summary>Can I bring friends?</summary>
+            <p>Please do &mdash; that&rsquo;s the entire plan. There&rsquo;s a question about it in the sign-up form, and a separate group sign-up if you&rsquo;re a club or a team. Bring the ones who say they hate running too; they&rsquo;re usually the ones who end up doing four laps.</p>
+          </details>
+          <details>
+            <summary>What if the weather is bad?</summary>
+            <p>It will be. We start anyway. That is the deal you&rsquo;re signing up for, and it is a much better story afterwards.</p>
+          </details>
+          <details>
+            <summary>Is this an official race?</summary>
+            <p>No timing chips, no medals, no entry fee. A bell, a measured loop, and someone counting laps. In practice: a night out with a hill in it.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="band" id="fire">
+  <div class="band-inner stack rise" id="signup">
+    <p class="eyebrow">Friday 30 October 2026 &middot; 18:00 &middot; Fantoft</p>
+    <h2 style="font-size:clamp(1.9rem,7vw,3.4rem);line-height:1.02;max-width:20ch">Can you do one more lap?</h2>
+    <p style="font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:44ch;color:#4A3A22">There is only one right answer, and it takes about forty seconds to give it.</p>
+    <div class="cta-row">
+      <a class="cta js-signup" href="#signup"><span>Yes, I can &mdash; sign me up</span><span class="arrow">&rarr;</span></a>
+      <p class="cta-note js-note">Takes 2 minutes. Non-binding. You can change your number later.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>Fantoft Ultra &middot; Bergen, Norway</p>
+    <p class="js-contact"></p>
+    <p class="js-social"></p>
+    <p>One loop. Every hour. Yes I can.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     EDIT THIS BLOCK WHEN THINGS CHANGE
+     ============================================================ */
+  var CONFIG = {
+    formUrl: "https://docs.google.com/forms/d/1j0YgpWdk8usmgrZFo6cmHe67K4B_M-kZq5-bf5t_AGk/viewform",
+    teamFormUrl: "",                    // clubs/teams  e.g. "https://forms.gle/xyz789"
+    whatsapp: "31636419978",            // digits only, with country code
+    whatsappLabel: "+31 6 3641 9978",   // how it is shown on the page
+    instagram: "Niels2308",             // without the @
+    contactEmail: "",                   // optional     e.g. "fantoftultra@gmail.com"
+    start: "2026-10-30T18:00:00+01:00"  // Friday 30 October 2026, 18:00 CET
+  };
+  /* ============================================================ */
+
+  /* ---- sign-up buttons ---- */
+  var buttons = document.querySelectorAll(".js-signup");
+  var notes = document.querySelectorAll(".js-note");
+  if (CONFIG.formUrl) {
+    buttons.forEach(function(b){
+      b.setAttribute("href", CONFIG.formUrl);
+      b.setAttribute("target", "_blank");
+      b.setAttribute("rel", "noopener");
+    });
+  } else {
+    buttons.forEach(function(b){
+      b.setAttribute("data-pending","true");
+      b.setAttribute("href","#signup");
+      b.querySelector("span").textContent = "Sign-up opens soon";
+      var arrow = b.querySelector(".arrow");
+      if (arrow) arrow.textContent = "●";
+    });
+    notes.forEach(function(n){ n.textContent = "The sign-up form is being set up. Check back shortly."; });
+  }
+
+  function link(label, href){
+    var a = document.createElement("a");
+    a.textContent = label;
+    a.setAttribute("href", href);
+    if (href.indexOf("http") === 0) { a.setAttribute("target","_blank"); a.setAttribute("rel","noopener me"); }
+    return a;
+  }
+
+  /* ---- group sign-up ---- */
+  var teamBtn = document.querySelector(".js-team");
+  var teamNote = document.querySelector(".js-team-note");
+  if (teamBtn) {
+    if (CONFIG.teamFormUrl) {
+      teamBtn.setAttribute("href", CONFIG.teamFormUrl);
+      teamBtn.setAttribute("target", "_blank");
+      teamBtn.setAttribute("rel", "noopener");
+    } else {
+      teamBtn.setAttribute("data-pending","true");
+      teamBtn.querySelector("span").textContent = "Group sign-up opens soon";
+      teamBtn.querySelector(".arrow").textContent = "●";
+      if (teamNote) {
+        teamNote.textContent = "";
+        if (CONFIG.whatsapp) {
+          teamNote.appendChild(document.createTextNode("In the meantime, message us on "));
+          teamNote.appendChild(link("WhatsApp", "https://wa.me/" + CONFIG.whatsapp.replace(/[^0-9]/g, "")));
+          teamNote.appendChild(document.createTextNode(" and we'll put your group down."));
+        } else {
+          teamNote.textContent = "Message us in the meantime and we'll put your group down.";
+        }
+      }
+    }
+  }
+
+  /* ---- contact lines ---- */
+  var contact = document.querySelector(".js-contact");
+  if (contact) {
+    if (CONFIG.whatsapp) {
+      var digits = CONFIG.whatsapp.replace(/[^0-9]/g, "");
+      contact.appendChild(document.createTextNode("WhatsApp "));
+      contact.appendChild(link(CONFIG.whatsappLabel || ("+" + digits), "https://wa.me/" + digits));
+    } else if (CONFIG.contactEmail) {
+      contact.appendChild(link("Questions? " + CONFIG.contactEmail, "mailto:" + CONFIG.contactEmail));
+    } else {
+      contact.textContent = "Route and final start time announced closer to the day";
+    }
+  }
+
+  var social = document.querySelector(".js-social");
+  if (social && CONFIG.instagram) {
+    social.appendChild(link("@" + CONFIG.instagram, "https://instagram.com/" + CONFIG.instagram));
+  }
+
+  /* ---- countdown ---- */
+  var target = new Date(CONFIG.start).getTime();
+  var fields = {
+    d: document.querySelector('[data-cd="d"]'),
+    h: document.querySelector('[data-cd="h"]'),
+    m: document.querySelector('[data-cd="m"]'),
+    s: document.querySelector('[data-cd="s"]')
+  };
+  var pad = function(n){ return n < 10 ? "0" + n : "" + n; };
+  function tick(){
+    var left = target - Date.now();
+    if (left <= 0) {
+      var cd = document.getElementById("countdown");
+      if (cd) cd.innerHTML = '<div class="cd-unit"><span class="cd-num">It&rsquo;s happening.</span><span class="cd-lab">See you at the bell</span></div>';
+      return;
+    }
+    var s = Math.floor(left / 1000);
+    fields.d.textContent = Math.floor(s / 86400);
+    fields.h.textContent = pad(Math.floor(s % 86400 / 3600));
+    fields.m.textContent = pad(Math.floor(s % 3600 / 60));
+    fields.s.textContent = pad(s % 60);
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  /* ---- scroll reveal ---- */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var risers = document.querySelectorAll(".rise");
+  if (reduce || !("IntersectionObserver" in window)) {
+    risers.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
+    risers.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- rain over the hero ---- */
+  var canvas = document.getElementById("rain");
+  if (canvas && !reduce) {
+    var ctx = canvas.getContext("2d");
+    var hero = canvas.parentElement;
+    var drops = [];
+    var running = true;
+    var w = 0, h = 0, dpr = 1;
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = hero.clientWidth;
+      h = hero.clientHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var count = Math.round(Math.min(150, Math.max(45, w / 9)));
+      drops = [];
+      for (var i = 0; i < count; i++) {
+        drops.push({
+          x: Math.random() * (w + 160) - 80,
+          y: Math.random() * h,
+          len: 8 + Math.random() * 22,
+          v: 380 + Math.random() * 520,
+          a: 0.05 + Math.random() * 0.16
+        });
+      }
+    }
+
+    var last = 0, slant = 0.22;
+    function frame(now){
+      if (!running) return;
+      var dt = last ? Math.min((now - last) / 1000, 0.05) : 0.016;
+      last = now;
+      ctx.clearRect(0, 0, w, h);
+      ctx.lineWidth = 1;
+      for (var i = 0; i < drops.length; i++) {
+        var d = drops[i];
+        d.y += d.v * dt;
+        d.x += d.v * slant * dt;
+        if (d.y > h) { d.y = -d.len; d.x = Math.random() * (w + 160) - 80; }
+        ctx.strokeStyle = "rgba(184,206,214," + d.a + ")";
+        ctx.beginPath();
+        ctx.moveTo(d.x, d.y);
+        ctx.lineTo(d.x - d.len * slant, d.y - d.len);
+        ctx.stroke();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    requestAnimationFrame(frame);
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting && !running) { running = true; last = 0; requestAnimationFrame(frame); }
+          else if (!e.isIntersecting) { running = false; }
+        });
+      }, { threshold: 0 }).observe(hero);
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

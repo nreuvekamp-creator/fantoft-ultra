@@ -200,6 +200,9 @@
   #fire .cta:hover{background:#000;box-shadow:0 12px 40px -10px rgba(23,19,15,.6)}
   #fire .cta[data-pending="true"]{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.45)}
   #fire .cta-note{color:#7A5720}
+  .route-notice{margin:1.2rem 0;padding:1rem 1.2rem;border:1.5px solid var(--lamp);background:rgba(240,162,56,.08);display:flex;flex-direction:column;gap:.35rem;max-width:46ch}
+  .route-notice strong{color:var(--lamp);font-size:1.15rem}
+  .route-links{flex-direction:row;flex-wrap:wrap;gap:.7rem}
   #fire .strava{display:flex;flex-direction:column;gap:.9rem;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(23,19,15,.18)}
   #fire .cta.cta-quiet{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.55)}
   #fire .cta.cta-quiet:hover{background:rgba(23,19,15,.08);box-shadow:inset 0 0 0 1.5px var(--tar)}
@@ -524,11 +527,19 @@
   <div class="hours">
 
     <div class="hour rise">
-      <div class="hour-mark">TBC<small>The loop</small></div>
+      <div class="hour-mark">6.72<small>km, the loop</small></div>
       <div class="hour-body">
-        <h2>The route isn&rsquo;t final yet</h2>
-        <p>It will be a loop starting and finishing at Fantoft, measured to 6.706 km, on ground you can run in the dark. We are still walking options and timing them.</p>
-        <p>Sign up now and you will be the first to get the route, the final start time and everything else. That is the main reason this page exists.</p>
+        <h2>Route v1 is out</h2>
+        <p>A loop starting and finishing at Fantoft: 6.72 km with about 132 m of climbing per lap, between 49 and 103 m above sea level. Run 15 laps and you have done 100 km and around 2,000 m of climbing.</p>
+        <div class="route-notice">
+          <strong>First version, not run yet.</strong>
+          <span>This route has not been run on foot yet, so it still needs to be checked and it may still change. Try it yourself and tell us what you find.</span>
+        </div>
+        <div class="cta-row route-links">
+          <a class="cta cta-quiet" href="https://www.strava.com/routes/3540673134028808536" target="_blank" rel="noopener"><span>Open the route on Strava</span><span class="arrow">&nearr;</span></a>
+          <a class="cta cta-quiet" href="fantoft-ultra-v1.gpx" download><span>Download the GPX</span><span class="arrow">&darr;</span></a>
+        </div>
+        <p class="cta-note">On Strava, search for &ldquo;fantoft ultra v1&rdquo;. The GPX works in Garmin, Coros, Suunto and most route apps.</p>
       </div>
     </div>
 
@@ -572,7 +583,7 @@
         <h2>Free to start. The food is a shared pot.</h2>
         <p><strong>Lap 1 costs you nothing.</strong> Turning up, running one lap in the dark with everyone else and going home again is free, and it stays free. We are not selling entries here.</p>
         <p>If you stay into the night you will be eating and drinking from our table for hours, and that food has to come from somewhere &mdash; so the people who stay chip in for it. Roughly: nothing for the first couple of laps, a little if you are still with us after 20:00, a bit more if you are also there for breakfast. Everyone pays for their own night. It is not an entry fee, and it is nowhere near what a real ultra charges.</p>
-        <p>Exact amounts land with the route announcement, and you will be able to pay it on the night with Vipps. There is a shop a few minutes away, so if there is one specific thing you will want at 03:00, bring it or tell us about it.</p>
+        <p>Exact amounts follow closer to the day, and you will be able to pay it on the night with Vipps. There is a shop a few minutes away, so if there is one specific thing you will want at 03:00, bring it or tell us about it.</p>
       </div>
     </div>
 
@@ -595,7 +606,7 @@
           </details>
           <details>
             <summary>Does it cost anything?</summary>
-            <p>There is no entry fee, and lap 1 is free for everyone. If you stay into the night there is a small shared contribution for the food table &mdash; a fraction of what a real ultra charges you. Exact amounts come with the route.</p>
+            <p>There is no entry fee, and lap 1 is free for everyone. If you stay into the night there is a small shared contribution for the food table &mdash; a fraction of what a real ultra charges you. Exact amounts follow closer to the day.</p>
           </details>
           <details>
             <summary>Can I bring friends?</summary>
@@ -658,6 +669,7 @@
     whatsapp: "31636419978",            // digits only, with country code
     whatsappLabel: "+31 6 3641 9978",   // how it is shown on the page
     instagram: "Niels2308",             // without the @
+    linkedin: "",                       // full profile URL, e.g. "https://www.linkedin.com/in/..."
     contactEmail: "",                   // optional     e.g. "fantoftultra@gmail.com"
     start: "2026-10-30T18:00:00+01:00"  // Friday 30 October 2026, 18:00 CET
   };
@@ -726,13 +738,17 @@
     } else if (CONFIG.contactEmail) {
       contact.appendChild(link("Questions? " + CONFIG.contactEmail, "mailto:" + CONFIG.contactEmail));
     } else {
-      contact.textContent = "Route and final start time announced closer to the day";
+      contact.textContent = "Final start time announced closer to the day";
     }
   }
 
   var social = document.querySelector(".js-social");
   if (social && CONFIG.instagram) {
     social.appendChild(link("@" + CONFIG.instagram, "https://instagram.com/" + CONFIG.instagram));
+  }
+  if (social && CONFIG.linkedin) {
+    if (social.childNodes.length) social.appendChild(document.createTextNode("  "));
+    social.appendChild(link("LinkedIn", CONFIG.linkedin));
   }
 
   /* ---- countdown ---- */

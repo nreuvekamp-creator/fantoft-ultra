@@ -200,6 +200,9 @@
   #fire .cta:hover{background:#000;box-shadow:0 12px 40px -10px rgba(23,19,15,.6)}
   #fire .cta[data-pending="true"]{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.45)}
   #fire .cta-note{color:#7A5720}
+  #fire .strava{display:flex;flex-direction:column;gap:.9rem;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(23,19,15,.18)}
+  #fire .cta.cta-quiet{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.55)}
+  #fire .cta.cta-quiet:hover{background:rgba(23,19,15,.08);box-shadow:inset 0 0 0 1.5px var(--tar)}
 
   /* ---------- hour rail ---------- */
   .hours{position:relative;max-width:1000px;margin:0 auto}
@@ -622,6 +625,13 @@
       <a class="cta js-signup" href="#signup"><span>Yes, I can &mdash; sign me up</span><span class="arrow">&rarr;</span></a>
       <p class="cta-note js-note">Takes 2 minutes. Non-binding. You can change your number later.</p>
     </div>
+    <div class="strava">
+      <p style="max-width:44ch;color:#4A3A22;margin:0">Also join the Fantoft Ultra club on Strava. That&rsquo;s where you can see who else is running, follow the build-up and share your laps afterwards.</p>
+      <div class="cta-row">
+        <a class="cta cta-quiet" href="https://www.strava.com/clubs/Fantoft-ultra" target="_blank" rel="noopener"><span>See who&rsquo;s running on Strava</span><span class="arrow">&nearr;</span></a>
+        <p class="cta-note">Joining the club is free and works next to the sign-up form.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -630,6 +640,7 @@
     <p>Fantoft Ultra &middot; Bergen, Norway</p>
     <p class="js-contact"></p>
     <p class="js-social"></p>
+    <p><a href="https://www.strava.com/clubs/Fantoft-ultra" target="_blank" rel="noopener">Fantoft Ultra on Strava</a></p>
     <p>One loop. Every hour. Yes I can.</p>
   </div>
 </footer>

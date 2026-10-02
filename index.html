@@ -342,6 +342,17 @@
   details[open] summary::after{content:"–"}
   details p{padding:0 0 1.1rem;color:var(--ash);font-size:.95rem}
 
+  /* ---------- partners ---------- */
+  .partners{background:var(--night);border-top:1px solid var(--line-soft);padding:clamp(2.4rem,7vw,3.6rem) clamp(1.15rem,5vw,2.5rem)}
+  .partners-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:1.4rem}
+  .partners .eyebrow{margin:0}
+  .partner-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .partner{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 1.4rem;border:1px solid var(--line-soft);text-decoration:none;transition:border-color .2s,background .2s}
+  .partner:hover{border-color:var(--lamp-deep);background:rgba(240,162,56,.05)}
+  .p-logo{height:60px;display:flex;align-items:center}
+  .p-logo img{max-width:100%;display:block}
+  .p-cap{font-size:.95rem;color:var(--ash)}
+
   /* ---------- footer ---------- */
   .footer{
     background:var(--deep);
@@ -633,6 +644,22 @@
         <a class="cta cta-quiet" href="https://www.strava.com/clubs/Fantoft-ultra" target="_blank" rel="noopener"><span>See who&rsquo;s running on Strava</span><span class="arrow">&nearr;</span></a>
         <p class="cta-note">Joining the club is free and works next to the sign-up form.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners" aria-label="With thanks to">
+  <div class="partners-inner">
+    <p class="eyebrow">With thanks to</p>
+    <div class="partner-row">
+      <a class="partner" href="https://sammen.no" target="_blank" rel="noopener">
+        <span class="p-logo"><img src="partners/sammen-logo-bone.svg" alt="Sammen" width="113" height="17" style="height:34px;width:auto"></span>
+        <span class="p-cap">Sammen, for the location and for helping us organise it</span>
+      </a>
+      <a class="partner" href="https://eikner.no" target="_blank" rel="noopener">
+        <span class="p-logo"><img src="partners/eikner-naturstein-logo-white.png" alt="Eikner Naturstein" width="265" height="63" style="height:56px;width:auto"></span>
+        <span class="p-cap">Eikner Naturstein, for supplying the stone</span>
+      </a>
     </div>
   </div>
 </section>

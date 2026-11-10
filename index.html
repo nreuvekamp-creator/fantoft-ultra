@@ -443,7 +443,8 @@
         </a>
         <div class="cta-row">
           <a class="cta" href="photos/"><span>See all the photos</span><span class="arrow">&rarr;</span></a>
-          <p class="cta-note">A big thank you to EDF visuals for the photos. <a class="edf-ig" hidden href="https://www.instagram.com/EDF_HANDLE/" target="_blank" rel="noopener">Follow them on Instagram: @EDF_HANDLE</a></p>
+          <a class="cta" href="https://www.instagram.com/edf.visuals/" target="_blank" rel="noopener"><span>Follow @edf.visuals on Instagram</span><span class="arrow">&nearr;</span></a>
+          <p class="cta-note">A big thank you to EDF visuals for the photos.</p>
         </div>
       </div>
     </div>
@@ -528,7 +529,11 @@
       <div class="hour-mark">1 shirt<small>The prize</small></div>
       <div class="hour-body">
         <h2>There is exactly one prize</h2>
-        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list. In 2026 it went to the legend <strong><span class="strava-link" data-href="GABRIEL_STRAVA_URL">Gabriel Bj&oslash;rkhaug</span>, for 20 laps</strong>, with fellow legend <span class="strava-link" data-href="OLIVER_STRAVA_URL">Oliver Reitan Zinow</span> taking the assist.</p>
+        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list. In 2026 it went to the legend <strong>Gabriel Bj&oslash;rkhaug, for 20 laps</strong>, with fellow legend Oliver Reitan Zinow taking the assist. Go give the legends a follow.</p>
+        <div class="cta-row cta-wrap">
+          <a class="cta" href="https://www.strava.com/athletes/29654850" target="_blank" rel="noopener"><span>Gabriel on Strava</span><span class="arrow">&nearr;</span></a>
+          <a class="cta" href="https://www.strava.com/athletes/192582704" target="_blank" rel="noopener"><span>Oliver on Strava</span><span class="arrow">&nearr;</span></a>
+        </div>
         <p>No medals, no goodie bags, no finisher photos you have to buy. We are keeping this deliberately cheap so that turning up can stay free &mdash; what money there is goes on the food table, not on merchandise. Everyone who isn&rsquo;t the winner gets a DNF and the story about the night it took.</p>
       </div>
     </div>
@@ -757,15 +762,6 @@
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
     risers.forEach(function(el){ io.observe(el); });
   }
-
-  /* ---- Strava links: placeholders render as plain names until a real URL is filled in ---- */
-  document.querySelectorAll(".strava-link").forEach(function(el){
-    var u = el.getAttribute("data-href");
-    if (!/^https:\/\//.test(u)) return;
-    var a = document.createElement("a");
-    a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = el.textContent;
-    el.replaceWith(a);
-  });
 
   /* ---- rain over the hero ---- */
   var canvas = document.getElementById("rain");

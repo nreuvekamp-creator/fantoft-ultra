@@ -108,7 +108,7 @@
     padding:clamp(2.4rem,6vw,4rem) clamp(1.15rem,5vw,2.5rem) clamp(3rem,7vw,4.5rem);
     border-bottom:1px solid var(--line-soft);
   }
-  #rain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+  #rain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
   .hero-inner{position:relative;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(1.6rem,4vw,2.4rem)}
 
   .crest{width:clamp(132px,25vw,178px);height:auto;display:block;opacity:.92}
@@ -443,7 +443,7 @@
         </a>
         <div class="cta-row">
           <a class="cta" href="photos/"><span>See all the photos</span><span class="arrow">&rarr;</span></a>
-          <p class="cta-note">Photos: EDF visuals</p>
+          <p class="cta-note">A big thank you to EDF visuals for the photos. <a class="edf-ig" hidden href="https://www.instagram.com/EDF_HANDLE/" target="_blank" rel="noopener">Follow them on Instagram: @EDF_HANDLE</a></p>
         </div>
       </div>
     </div>
@@ -528,7 +528,7 @@
       <div class="hour-mark">1 shirt<small>The prize</small></div>
       <div class="hour-body">
         <h2>There is exactly one prize</h2>
-        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list. In 2026 it went to <strong>Gabriel Bj&oslash;rkhaug, for 20 laps</strong>, with Oliver Reitan Zinow taking the assist.</p>
+        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list. In 2026 it went to the legend <strong><span class="strava-link" data-href="GABRIEL_STRAVA_URL">Gabriel Bj&oslash;rkhaug</span>, for 20 laps</strong>, with fellow legend <span class="strava-link" data-href="OLIVER_STRAVA_URL">Oliver Reitan Zinow</span> taking the assist.</p>
         <p>No medals, no goodie bags, no finisher photos you have to buy. We are keeping this deliberately cheap so that turning up can stay free &mdash; what money there is goes on the food table, not on merchandise. Everyone who isn&rsquo;t the winner gets a DNF and the story about the night it took.</p>
       </div>
     </div>
@@ -668,7 +668,7 @@
     <div class="partner-row">
       <a class="partner" href="https://sammen.no" target="_blank" rel="noopener">
         <span class="p-logo"><img src="partners/sammen-logo-bone.svg" alt="Sammen" width="113" height="17" style="height:34px;width:auto"></span>
-        <span class="p-cap">Sammen, for the location and for helping us organise it</span>
+        <span class="p-cap">Sammen, for the location and for helping us organise it. Without Sammen, there would have been no night at all</span>
       </a>
       <a class="partner" href="https://eikner.no" target="_blank" rel="noopener">
         <span class="p-logo"><img src="partners/eikner-naturstein-logo-white.png" alt="Eikner Naturstein" width="265" height="63" style="height:56px;width:auto"></span>
@@ -680,7 +680,7 @@
       </div>
       <div class="partner">
         <span class="p-logo"><img src="partners/myhre-skilt-logo-bone.png" alt="Myhre Skilt" width="670" height="360" style="height:56px;width:auto"></span>
-        <span class="p-cap">Myhre Skilt, for helping us make the night happen</span>
+        <span class="p-cap">Myhre Skilt, for the extra buffs that kept everyone a bit warmer, and for engraving the winner&rsquo;s prize</span>
       </div>
     </div>
   </div>
@@ -758,6 +758,15 @@
     risers.forEach(function(el){ io.observe(el); });
   }
 
+  /* ---- Strava links: placeholders render as plain names until a real URL is filled in ---- */
+  document.querySelectorAll(".strava-link").forEach(function(el){
+    var u = el.getAttribute("data-href");
+    if (!/^https:\/\//.test(u)) return;
+    var a = document.createElement("a");
+    a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = el.textContent;
+    el.replaceWith(a);
+  });
+
   /* ---- rain over the hero ---- */
   var canvas = document.getElementById("rain");
   if (canvas && !reduce) {
@@ -774,15 +783,15 @@
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var count = Math.round(Math.min(150, Math.max(45, w / 9)));
+      var count = Math.round(Math.min(240, Math.max(80, w / 6)));
       drops = [];
       for (var i = 0; i < count; i++) {
         drops.push({
           x: Math.random() * (w + 160) - 80,
           y: Math.random() * h,
-          len: 8 + Math.random() * 22,
+          len: 14 + Math.random() * 30,
           v: 380 + Math.random() * 520,
-          a: 0.05 + Math.random() * 0.16
+          a: 0.10 + Math.random() * 0.22
         });
       }
     }

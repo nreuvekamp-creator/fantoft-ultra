@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fantoft Ultra — One loop. Every hour. Yes I can.</title>
-<meta name="description" content="A backyard ultra in Bergen. 6.706 km every hour, on the hour, from 18:00 on Friday 30 October 2026. One lap counts as taking part.">
+<meta name="description" content="A backyard ultra in Bergen. 2026 is done: about 200 starters, won by Gabriel Bj&oslash;rkhaug with 20 laps (134 km). Next edition planned for Friday 29 October 2027, 18:00.">
 <meta name="theme-color" content="#0E0C0B">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Fantoft Ultra — One loop. Every hour. Yes I can.">
-<meta property="og:description" content="A backyard ultra in Bergen. 6.706 km every hour, on the hour, from 18:00 on Friday 30 October 2026. One lap counts as taking part.">
+<meta property="og:description" content="A backyard ultra in Bergen. 2026 is done: about 200 starters, won by Gabriel Bj&oslash;rkhaug with 20 laps (134 km). Next edition planned for Friday 29 October 2027, 18:00.">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -165,12 +165,6 @@
     white-space:nowrap;
   }
 
-  /* ---------- countdown ---------- */
-  .countdown{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-variant-numeric:tabular-nums}
-  .cd-unit{display:flex;flex-direction:column;gap:.15rem}
-  .cd-num{font-family:var(--mono);font-weight:600;font-size:clamp(1.5rem,5vw,2.3rem);line-height:1;color:var(--bone)}
-  .cd-lab{font-family:var(--mono);font-size:.6rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ash-dim)}
-
   /* ---------- cta ---------- */
   .cta-row{display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
   .cta{
@@ -191,18 +185,18 @@
   }
   .cta:hover{background:#FFB44F;box-shadow:0 0 0 1px var(--lamp),0 10px 40px -8px rgba(240,162,56,.65);transform:translateY(-1px)}
   .cta .arrow{font-family:var(--mono);font-weight:500}
-  .cta[data-pending="true"]{background:transparent;color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp-deep);cursor:default}
-  .cta[data-pending="true"]:hover{transform:none;box-shadow:inset 0 0 0 1.5px var(--lamp-deep);background:transparent}
   .cta-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ash-dim);margin:0}
   .cta-quiet{background:transparent;color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp-deep);font-size:.98rem;padding:.85rem 1.35rem}
   .cta-quiet:hover{background:rgba(240,162,56,.1);color:var(--lamp);box-shadow:inset 0 0 0 1.5px var(--lamp),0 8px 30px -12px rgba(240,162,56,.5)}
   #fire .cta{background:var(--tar);color:var(--lamp)}
   #fire .cta:hover{background:#000;box-shadow:0 12px 40px -10px rgba(23,19,15,.6)}
-  #fire .cta[data-pending="true"]{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.45)}
   #fire .cta-note{color:#7A5720}
   .route-sheet{display:block;margin:0 0 1.2rem;max-width:100%}
   .route-sheet img{display:block;width:100%;height:auto;box-shadow:0 0 0 1px rgba(240,162,56,.35)}
-  .route-links{flex-direction:row;flex-wrap:wrap;gap:.7rem}
+  .cta-wrap{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.7rem}
+  .shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+  .shots img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+  @media (max-width:560px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
   #fire .strava{display:flex;flex-direction:column;gap:.9rem;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(23,19,15,.18)}
   #fire .cta.cta-quiet{background:transparent;color:var(--tar);box-shadow:inset 0 0 0 1.5px rgba(23,19,15,.55)}
   #fire .cta.cta-quiet:hover{background:rgba(23,19,15,.08);box-shadow:inset 0 0 0 1.5px var(--tar)}
@@ -344,7 +338,7 @@
   .partners{background:var(--night);border-top:1px solid var(--line-soft);padding:clamp(2.4rem,7vw,3.6rem) clamp(1.15rem,5vw,2.5rem)}
   .partners-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:1.4rem}
   .partners .eyebrow{margin:0}
-  .partner-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .partner-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
   .partner{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 1.4rem;border:1px solid var(--line-soft);text-decoration:none;transition:border-color .2s,background .2s}
   .partner:hover{border-color:var(--lamp-deep);background:rgba(240,162,56,.05)}
   .p-logo{height:60px;display:flex;align-items:center}
@@ -406,40 +400,60 @@
       <p class="tagline">Yes I Can.</p>
     </div>
 
-    <p class="thesis">One loop. Every hour, on the hour. Until only one of us is left.</p>
+    <p class="thesis">Thank you. On 30 October about 200 of us went into the dark together. Gabriel Bj&oslash;rkhaug was the last one standing.</p>
 
     <div class="when">
-      <span>Friday 30 October 2026</span>
+      <span>2026 result</span>
+      <span class="dot">/</span>
+      <span>20 laps</span>
+      <span class="dot">/</span>
+      <span>134 km</span>
+      <span class="dot">/</span>
+      <span>Gabriel Bj&oslash;rkhaug</span>
+    </div>
+
+    <div class="when">
+      <span>Next: Friday 29 October 2027</span>
       <span class="dot">/</span>
       <span>18:00</span>
-      <span class="tag">Planned start</span>
-      <span class="dot">/</span>
-      <span>6.706 km per lap</span>
+      <span class="tag">Planned</span>
     </div>
 
-    <div class="countdown" id="countdown" aria-label="Time until the start">
-      <div class="cd-unit"><span class="cd-num" data-cd="d">--</span><span class="cd-lab">Days</span></div>
-      <div class="cd-unit"><span class="cd-num" data-cd="h">--</span><span class="cd-lab">Hours</span></div>
-      <div class="cd-unit"><span class="cd-num" data-cd="m">--</span><span class="cd-lab">Minutes</span></div>
-      <div class="cd-unit"><span class="cd-num" data-cd="s">--</span><span class="cd-lab">Seconds</span></div>
+    <div class="cta-row cta-wrap">
+      <a class="cta js-signup" href="#signup"><span>I&rsquo;m in for 2027</span><span class="arrow">&rarr;</span></a>
+      <a class="cta cta-quiet js-signup" href="#signup"><span>I&rsquo;d like to help organise</span><span class="arrow">&rarr;</span></a>
     </div>
-
-    <div class="cta-row">
-      <a class="cta js-signup" href="#signup"><span>Yes, I&rsquo;m in</span><span class="arrow">&rarr;</span></a>
-      <p class="cta-note js-note">One lap counts as taking part. Here&rsquo;s why &darr;</p>
-    </div>
+    <p class="cta-note"><a href="#photos">Photos from the night are up &darr;</a></p>
   </div>
 </header>
 
 <section class="band" id="dusk">
   <div class="hours">
 
+    <div class="hour rise" id="photos">
+      <div class="hour-mark">392<small>Photos</small></div>
+      <div class="hour-body">
+        <h2>Photos from 2026</h2>
+        <p>The start, the bell, the rain and the very last laps. Open any photo and download it. Free to use for yourself; please credit <strong>EDF visuals</strong> when you post one.</p>
+        <a class="shots" href="photos/" aria-label="Open the 2026 photo gallery">
+          <img src="photos/thumb/fantoft-ultra-001.jpg" width="426" height="640" loading="lazy" alt="">
+          <img src="photos/thumb/fantoft-ultra-060.jpg" width="426" height="640" loading="lazy" alt="">
+          <img src="photos/thumb/fantoft-ultra-200.jpg" width="426" height="640" loading="lazy" alt="">
+          <img src="photos/thumb/fantoft-ultra-380.jpg" width="426" height="640" loading="lazy" alt="">
+        </a>
+        <div class="cta-row">
+          <a class="cta" href="photos/"><span>See all the photos</span><span class="arrow">&rarr;</span></a>
+          <p class="cta-note">Photos: EDF visuals</p>
+        </div>
+      </div>
+    </div>
+
     <div class="hour rise">
       <div class="hour-mark">18:00<small>Lap 1</small></div>
       <div class="hour-body">
-        <h2>Nobody starts alone</h2>
-        <p>The first lap, we all go out as one group. No pace, no racing, no getting dropped &mdash; we walk and run it together and talk the whole way round.</p>
-        <p>At six in the evening at the end of October in Bergen, it is already dark. So that first lap takes us straight into the night, together. That is the whole idea: you head into the dark with a hundred other people instead of on your own.</p>
+        <h2>Nobody started alone</h2>
+        <p>The first lap, we all went out as one group. No pace, no racing, no getting dropped &mdash; we walked and ran it together and talked the whole way round.</p>
+        <p>At six in the evening at the end of October in Bergen, it is already dark. So that first lap took us straight into the night, together. That is the whole idea, and it stays the idea for 2027: you head into the dark with a couple of hundred other people instead of on your own.</p>
       </div>
     </div>
 
@@ -458,7 +472,7 @@
         <h2>Mostly, this is an excuse to spend a night together</h2>
         <p>Let&rsquo;s be honest about what this is. It is a bell, a loop around Fantoft, something warm to drink, and a group of people finding out what they are up for. The winning is a side effect.</p>
         <p>You do not have to be a runner. You can walk the whole lap. You can stop after one and stay for the rest of the night with a cup of something, counting the others through. <strong>Nobody will ask you why you stopped.</strong></p>
-        <p>What we actually want is <strong>200 people on the start line at 18:00</strong>. What happens after that is between you and the hours.</p>
+        <p>What we wanted was <strong>200 people on the start line at 18:00</strong>. About 200 of you turned up, in the rain, in the dark. In 2027 we would like to do that again.</p>
       </div>
     </div>
 
@@ -471,8 +485,8 @@
     <div class="hour rise">
       <div class="hour-mark">?<small>Your call</small></div>
       <div class="hour-body">
-        <h2>How far will you go?</h2>
-        <p>Pick something when you sign up. It is not binding &mdash; it just helps us plan, and it gives you a number to aim at.</p>
+        <h2>How far will you go in 2027?</h2>
+        <p>Pick something to aim at. Nobody holds you to it.</p>
         <ul class="ladder">
           <li><span class="rung-n">1 lap</span><span class="rung-t"><b>6.7 km</b> &mdash; I want to be on that start line.</span></li>
           <li><span class="rung-n">3 laps</span><span class="rung-t"><b>20.1 km</b> &mdash; nearly a half marathon, by accident.</span></li>
@@ -500,12 +514,13 @@
               <tr><td>12</td><td>Sat 05:00</td><td>80.5 km</td><td>The hard part. Nobody feels good here.</td></tr>
               <tr class="milestone"><td>15</td><td>Sat 08:00</td><td>100.6 km</td><td>Daylight comes back</td></tr>
               <tr><td>19</td><td>Sat 12:00</td><td>127.4 km</td><td>A full day since the bell</td></tr>
+              <tr class="milestone"><td>20</td><td>Sat 13:00</td><td>134.1 km</td><td>Where Gabriel Bj&oslash;rkhaug won 2026</td></tr>
               <tr class="milestone"><td>24</td><td>Sat 17:00</td><td>160.9 km</td><td>100 miles &mdash; and it gets dark again</td></tr>
             </tbody>
             <caption>One lap is 6.706 km, the official backyard distance. Times assume an 18:00 start.</caption>
           </table>
         </div>
-        <p>For scale: the world record is over 100 laps. We are not going there. Probably.</p>
+        <p>For scale: the world record is over 100 laps. We are not going there. Probably. In 2026 it took 20.</p>
       </div>
     </div>
 
@@ -513,7 +528,7 @@
       <div class="hour-mark">1 shirt<small>The prize</small></div>
       <div class="hour-body">
         <h2>There is exactly one prize</h2>
-        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list.</p>
+        <p>The last one standing gets a Fantoft Ultra shirt, printed afterwards with the number of laps it took to win it. That is the complete prize list. In 2026 it went to <strong>Gabriel Bj&oslash;rkhaug, for 20 laps</strong>, with Oliver Reitan Zinow taking the assist.</p>
         <p>No medals, no goodie bags, no finisher photos you have to buy. We are keeping this deliberately cheap so that turning up can stay free &mdash; what money there is goes on the food table, not on merchandise. Everyone who isn&rsquo;t the winner gets a DNF and the story about the night it took.</p>
       </div>
     </div>
@@ -527,15 +542,15 @@
     <div class="hour rise">
       <div class="hour-mark">6.706<small>km, the loop</small></div>
       <div class="hour-body">
-        <h2>The final route</h2>
-        <p>A loop starting and finishing at Fantoft: 6.706 km with about 130 m of climbing per lap, between 34 and 103 m above sea level. Run 15 laps and you have done 100 km and around 2,000 m of climbing; run 24 and it is 3,120 m.</p>
+        <h2>The 2026 route</h2>
+        <p>The loop we ran in 2026, starting and finishing at Fantoft: 6.706 km with about 130 m of climbing per lap, between 34 and 103 m above sea level. Run 15 laps and you have done 100 km and around 2,000 m of climbing; run 24 and it is 3,120 m.</p>
         <a class="route-sheet" href="fantoft-ultra-route-final.pdf" target="_blank" rel="noopener"><img src="fantoft-ultra-route-final.jpg" width="1600" height="1131" loading="lazy" alt="Final route map with the elevation profile: 6.706 km, 130 m of climbing per lap, highest point 103 m, lowest point 34 m"></a>
-        <div class="cta-row route-links">
+        <div class="cta-row cta-wrap">
           <a class="cta cta-quiet" href="https://www.strava.com/routes/3542133253025121150" target="_blank" rel="noopener"><span>Open the route on Strava</span><span class="arrow">&nearr;</span></a>
           <a class="cta cta-quiet" href="fantoft-ultra-final.gpx" download><span>Download the GPX</span><span class="arrow">&darr;</span></a>
           <a class="cta cta-quiet" href="fantoft-ultra-route-final.pdf" download><span>Download the route sheet (PDF)</span><span class="arrow">&darr;</span></a>
         </div>
-        <p class="cta-note">On Strava, search for &ldquo;Fantoft Ultra 2026 Official&rdquo;. The GPX works in Garmin, Coros, Suunto and most route apps.</p>
+        <p class="cta-note">On Strava, search for &ldquo;Fantoft Ultra 2026 Official&rdquo;. The GPX works in Garmin, Coros, Suunto and most route apps. The 2027 route is confirmed closer to the day.</p>
       </div>
     </div>
 
@@ -579,7 +594,7 @@
         <h2>Free to start. The food is a shared pot.</h2>
         <p><strong>Lap 1 costs you nothing.</strong> Turning up, running one lap in the dark with everyone else and going home again is free, and it stays free. We are not selling entries here.</p>
         <p>If you stay into the night you will be eating and drinking from our table for hours, and that food has to come from somewhere &mdash; so the people who stay chip in for it. Roughly: nothing for the first couple of laps, a little if you are still with us after 20:00, a bit more if you are also there for breakfast. Everyone pays for their own night. It is not an entry fee, and it is nowhere near what a real ultra charges.</p>
-        <p>Exact amounts follow closer to the day, and you will be able to pay it on the night with Vipps. There is a shop a few minutes away, so if there is one specific thing you will want at 03:00, bring it or tell us about it.</p>
+        <p>That is how it worked in 2026, and the plan for 2027 is the same; exact amounts follow closer to the day. There is a shop a few minutes away, so if there is one specific thing you will want at 03:00, bring it or tell us about it.</p>
       </div>
     </div>
 
@@ -606,11 +621,15 @@
           </details>
           <details>
             <summary>Can I bring friends?</summary>
-            <p>Please do &mdash; that&rsquo;s the entire plan. There&rsquo;s a question about it in the sign-up form, so just tell us who you&rsquo;re bringing. Bring the ones who say they hate running too; they&rsquo;re usually the ones who end up doing four laps.</p>
+            <p>Please do &mdash; that&rsquo;s the entire plan. Bring the ones who say they hate running too; they&rsquo;re usually the ones who end up doing four laps.</p>
           </details>
           <details>
             <summary>What if the weather is bad?</summary>
             <p>It will be. We start anyway. That is the deal you&rsquo;re signing up for, and it is a much better story afterwards.</p>
+          </details>
+          <details>
+            <summary>When is the next one?</summary>
+            <p>Planned for Friday 29 October 2027, 18:00, at Fantoft. We aim for the last Friday of October. Fill in the interest form and we will let you know once it is confirmed.</p>
           </details>
           <details>
             <summary>Is this an official race?</summary>
@@ -625,18 +644,19 @@
 
 <section class="band" id="fire">
   <div class="band-inner stack rise" id="signup">
-    <p class="eyebrow">Friday 30 October 2026 &middot; 18:00 &middot; Fantoft</p>
+    <p class="eyebrow">Planned &middot; Fri 29 Oct 2027 &middot; 18:00 &middot; Fantoft</p>
     <h2 style="font-size:clamp(1.9rem,7vw,3.4rem);line-height:1.02;max-width:20ch">Can you do one more lap?</h2>
-    <p style="font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:44ch;color:#4A3A22">There is only one right answer, and it takes about forty seconds to give it.</p>
-    <div class="cta-row">
-      <a class="cta js-signup" href="#signup"><span>Yes, I can &mdash; sign me up</span><span class="arrow">&rarr;</span></a>
-      <p class="cta-note js-note">Takes 2 minutes. Non-binding. You can change your number later.</p>
+    <p style="font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:44ch;color:#4A3A22">Tell us you&rsquo;re in for 2027, or that you&rsquo;d like to help make it happen. One short form for both.</p>
+    <div class="cta-row cta-wrap">
+      <a class="cta js-signup" href="#signup"><span>I&rsquo;m in for 2027</span><span class="arrow">&rarr;</span></a>
+      <a class="cta cta-quiet js-signup" href="#signup"><span>I&rsquo;d like to help organise</span><span class="arrow">&rarr;</span></a>
     </div>
+    <p class="cta-note">Non-binding. We let you know once 2027 is confirmed.</p>
     <div class="strava">
-      <p style="max-width:44ch;color:#4A3A22;margin:0">Also join the Fantoft Ultra club on Strava. That&rsquo;s where you can see who else is running, follow the build-up and share your laps afterwards.</p>
+      <p style="max-width:44ch;color:#4A3A22;margin:0">Also join the Fantoft Ultra club on Strava. That&rsquo;s where the 2026 laps are, and where the build-up to 2027 will happen.</p>
       <div class="cta-row">
-        <a class="cta cta-quiet" href="https://www.strava.com/clubs/Fantoft-ultra" target="_blank" rel="noopener"><span>See who&rsquo;s running on Strava</span><span class="arrow">&nearr;</span></a>
-        <p class="cta-note">Joining the club is free and works next to the sign-up form.</p>
+        <a class="cta cta-quiet" href="https://www.strava.com/clubs/Fantoft-ultra" target="_blank" rel="noopener"><span>Fantoft Ultra on Strava</span><span class="arrow">&nearr;</span></a>
+        <p class="cta-note">Joining the club is free.</p>
       </div>
     </div>
   </div>
@@ -654,6 +674,14 @@
         <span class="p-logo"><img src="partners/eikner-naturstein-logo-white.png" alt="Eikner Naturstein" width="265" height="63" style="height:56px;width:auto"></span>
         <span class="p-cap">Eikner Naturstein, for supplying the stone</span>
       </a>
+      <div class="partner">
+        <span class="p-logo"><img src="partners/posthuset-logo-bone.svg" alt="Posthuset" width="2202" height="2340" style="height:60px;width:auto"></span>
+        <span class="p-cap">Posthuset, for staying open especially for us</span>
+      </div>
+      <div class="partner">
+        <span class="p-logo"><img src="partners/myhre-skilt-logo-bone.png" alt="Myhre Skilt" width="670" height="360" style="height:56px;width:auto"></span>
+        <span class="p-cap">Myhre Skilt, for helping us make the night happen</span>
+      </div>
     </div>
   </div>
 </section>
@@ -676,36 +704,20 @@
      EDIT THIS BLOCK WHEN THINGS CHANGE
      ============================================================ */
   var CONFIG = {
-    formUrl: "https://forms.gle/WauMbxtfxhDAxcXp9",  // runners, public responder link
-    teamFormUrl: "",                    // clubs/teams  e.g. "https://forms.gle/xyz789"
+    interestFormUrl: "https://forms.gle/7tak9Mfw4ZyXxK477",  // 2027 interest form (runners + helpers), public responder link
     whatsapp: "31636419978",            // digits only, with country code
     whatsappLabel: "+31 6 3641 9978",   // how it is shown on the page
     instagram: "Niels2308",             // without the @
-    linkedin: "https://www.linkedin.com/in/nielsreuvekamp/",                       // full profile URL, e.g. "https://www.linkedin.com/in/..."
-    contactEmail: "",                   // optional     e.g. "fantoftultra@gmail.com"
-    start: "2026-10-30T18:00:00+01:00"  // Friday 30 October 2026, 18:00 CET
+    linkedin: "https://www.linkedin.com/in/nielsreuvekamp/"  // full profile URL
   };
   /* ============================================================ */
 
-  /* ---- sign-up buttons ---- */
-  var buttons = document.querySelectorAll(".js-signup");
-  var notes = document.querySelectorAll(".js-note");
-  if (CONFIG.formUrl) {
-    buttons.forEach(function(b){
-      b.setAttribute("href", CONFIG.formUrl);
-      b.setAttribute("target", "_blank");
-      b.setAttribute("rel", "noopener");
-    });
-  } else {
-    buttons.forEach(function(b){
-      b.setAttribute("data-pending","true");
-      b.setAttribute("href","#signup");
-      b.querySelector("span").textContent = "Sign-up opens soon";
-      var arrow = b.querySelector(".arrow");
-      if (arrow) arrow.textContent = "●";
-    });
-    notes.forEach(function(n){ n.textContent = "The sign-up form is being set up. Check back shortly."; });
-  }
+  /* ---- interest-form buttons ---- */
+  document.querySelectorAll(".js-signup").forEach(function(b){
+    b.setAttribute("href", CONFIG.interestFormUrl);
+    b.setAttribute("target", "_blank");
+    b.setAttribute("rel", "noopener");
+  });
 
   function link(label, href){
     var a = document.createElement("a");
@@ -715,43 +727,12 @@
     return a;
   }
 
-  /* ---- group sign-up ---- */
-  var teamBtn = document.querySelector(".js-team");
-  var teamNote = document.querySelector(".js-team-note");
-  if (teamBtn) {
-    if (CONFIG.teamFormUrl) {
-      teamBtn.setAttribute("href", CONFIG.teamFormUrl);
-      teamBtn.setAttribute("target", "_blank");
-      teamBtn.setAttribute("rel", "noopener");
-    } else {
-      teamBtn.setAttribute("data-pending","true");
-      teamBtn.querySelector("span").textContent = "Group sign-up opens soon";
-      teamBtn.querySelector(".arrow").textContent = "●";
-      if (teamNote) {
-        teamNote.textContent = "";
-        if (CONFIG.whatsapp) {
-          teamNote.appendChild(document.createTextNode("In the meantime, message us on "));
-          teamNote.appendChild(link("WhatsApp", "https://wa.me/" + CONFIG.whatsapp.replace(/[^0-9]/g, "")));
-          teamNote.appendChild(document.createTextNode(" and we'll put your group down."));
-        } else {
-          teamNote.textContent = "Message us in the meantime and we'll put your group down.";
-        }
-      }
-    }
-  }
-
   /* ---- contact lines ---- */
   var contact = document.querySelector(".js-contact");
-  if (contact) {
-    if (CONFIG.whatsapp) {
-      var digits = CONFIG.whatsapp.replace(/[^0-9]/g, "");
-      contact.appendChild(document.createTextNode("WhatsApp "));
-      contact.appendChild(link(CONFIG.whatsappLabel || ("+" + digits), "https://wa.me/" + digits));
-    } else if (CONFIG.contactEmail) {
-      contact.appendChild(link("Questions? " + CONFIG.contactEmail, "mailto:" + CONFIG.contactEmail));
-    } else {
-      contact.textContent = "Final start time announced closer to the day";
-    }
+  if (contact && CONFIG.whatsapp) {
+    var digits = CONFIG.whatsapp.replace(/[^0-9]/g, "");
+    contact.appendChild(document.createTextNode("WhatsApp "));
+    contact.appendChild(link(CONFIG.whatsappLabel || ("+" + digits), "https://wa.me/" + digits));
   }
 
   var social = document.querySelector(".js-social");
@@ -762,31 +743,6 @@
     if (social.childNodes.length) social.appendChild(document.createTextNode("  "));
     social.appendChild(link("LinkedIn", CONFIG.linkedin));
   }
-
-  /* ---- countdown ---- */
-  var target = new Date(CONFIG.start).getTime();
-  var fields = {
-    d: document.querySelector('[data-cd="d"]'),
-    h: document.querySelector('[data-cd="h"]'),
-    m: document.querySelector('[data-cd="m"]'),
-    s: document.querySelector('[data-cd="s"]')
-  };
-  var pad = function(n){ return n < 10 ? "0" + n : "" + n; };
-  function tick(){
-    var left = target - Date.now();
-    if (left <= 0) {
-      var cd = document.getElementById("countdown");
-      if (cd) cd.innerHTML = '<div class="cd-unit"><span class="cd-num">It&rsquo;s happening.</span><span class="cd-lab">See you at the bell</span></div>';
-      return;
-    }
-    var s = Math.floor(left / 1000);
-    fields.d.textContent = Math.floor(s / 86400);
-    fields.h.textContent = pad(Math.floor(s % 86400 / 3600));
-    fields.m.textContent = pad(Math.floor(s % 3600 / 60));
-    fields.s.textContent = pad(s % 60);
-    setTimeout(tick, 1000);
-  }
-  tick();
 
   /* ---- scroll reveal ---- */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
